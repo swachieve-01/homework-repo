@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JS 숙제</title>
+	</head>
+	<body>
+		<script>
+			const input = prompt("2~9 사이의 숫자를 입력하세요");
+			const num = Number(input);
+
+			if (num >= 2 && num <= 9) {
+				for (let i = 1; i <= 9; i++) {
+					console.log(`${num} x ${i} = ${num * i}`);
+				}
+			} else {
+				console.log("2~9 사이 숫자를 입력하세요");
+			}
+		</script>
+	</body>
+</html>
