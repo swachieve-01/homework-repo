@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JS 숙제</title>
+	</head>
+	<body>
+		<script>
+			const cart = [];
+
+			cart.push({ name: "컴퓨터", price: 1000000 });
+			cart.push({ name: "마우스", price: 50000 });
+			cart.push({ name: "키보드", price: 70000 });
+
+			console.log("현재 상품:", cart.map((item) => item.name).join(", "));
+
+			const index = cart.findIndex((item) => item.name === "컴퓨터	");
+			if (index !== -1) {
+				cart.splice(index, 1);
+			}
+
+			cart.sort((a, b) => a.price - b.price);
+
+			console.log("정렬된 장바구니:", cart.map((item) => item.name).join(", "));
+		</script>
+	</body>
+</html>
