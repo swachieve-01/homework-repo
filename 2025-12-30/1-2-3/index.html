@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JS 숙제</title>
+	</head>
+	<body>
+		<script>
+			const student = {
+				name: "박상우",
+				age: 25,
+				scores: {
+					math: 90,
+					english: 85,
+				},
+			};
+
+			function getProperty(obj, key) {
+				return obj[key];
+			}
+
+			console.log("동적 접근:", getProperty(student, "name"));
+
+			function getAverageScore(scores) {
+				let sum = 0;
+				let count = 0;
+
+				for (const subject in scores) {
+					sum = sum + scores[subject];
+					count = count + 1;
+				}
+
+				return sum / count;
+			}
+
+			const average = getAverageScore(student.scores);
+			console.log("평균 점수:", average);
+
+			const copyStudent = JSON.parse(JSON.stringify(student));
+
+			copyStudent.name = "ParkSangWoo";
+			copyStudent.scores.english = 100;
+
+			console.log("원본 학생:", student);
+			console.log("복사본 학생:", copyStudent);
+		</script>
+	</body>
+</html>
