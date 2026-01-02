@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>프로필 카드 조작하기</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				padding: 40px;
+				background-color: #f5f5f5;
+			}
+			.profile-card {
+				background-color: white;
+				padding: 30px;
+				border-radius: 10px;
+				max-width: 400px;
+				margin: 20px auto;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			}
+			.profile-card.dark-mode {
+				background-color: #2d2d2d;
+				color: white;
+			}
+			.profile-name {
+				font-size: 24px;
+				font-weight: bold;
+				margin-bottom: 10px;
+			}
+			button {
+				padding: 10px 20px;
+				margin: 5px;
+				font-size: 14px;
+				background-color: #3ba332;
+				color: white;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+			button:hover {
+				background-color: #1f7417;
+			}
+			.user-list {
+				margin-top: 20px;
+				padding: 15px;
+				background-color: #f0f0f0;
+				border-radius: 5px;
+			}
+			.dark-mode .user-list {
+				background-color: #1a1a1a;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 style="text-align: center">프로필 카드 조작하기</h1>
+
+		<div class="profile-card">
+			<div class="profile-name">박상우</div>
+			<p>새해 복 많이 받으세요!</p>
+
+			<div>
+				<button id="toggleBtn">다크모드 전환</button>
+				<button id="addUserBtn">복주머니</button>
+			</div>
+
+			<div class="user-list" data-user-id="Happy-New-Year-2026">
+				<strong>올해 받게 될 복:</strong>
+				<div id="userContainer"></div>
+			</div>
+		</div>
+
+		<script>
+			"use strict";
+
+			const profileName = document.querySelector(".profile-name");
+			profileName.textContent = "박상우";
+
+			const profileCard = document.querySelector(".profile-card");
+			const toggleBtn = document.querySelector("#toggleBtn");
+
+			toggleBtn.addEventListener("click", function () {
+				profileCard.classList.toggle("dark-mode");
+			});
+
+			const userList = document.querySelector(".user-list");
+			console.log("User ID:", userList.dataset.userId);
+
+			const addUserBtn = document.querySelector("#addUserBtn");
+			const userContainer = document.querySelector("#userContainer");
+			let userCount = 1;
+
+			addUserBtn.addEventListener("click", function () {
+				const newUser = document.createElement("p");
+				newUser.textContent = `복`;
+				userContainer.appendChild(newUser);
+			});
+		</script>
+	</body>
+</html>
