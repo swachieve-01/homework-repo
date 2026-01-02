@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JS숙제</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				padding: 40px;
+				background-color: #f5f5f5;
+			}
+			.btn-wrap {
+				margin-bottom: 20px;
+			}
+			button {
+				padding: 15px 30px;
+				font-size: 16px;
+				background-color: #45a049;
+				color: white;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+			button:hover {
+				background-color: #24f12b;
+			}
+			.result {
+				background-color: white;
+				padding: 20px;
+				border-radius: 5px;
+				border-left: 4px solid #45a049;
+				margin-top: 20px;
+				line-height: 1.8;
+			}
+			.hidden {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>DOM 탐색기</h1>
+
+		<div class="btn-wrap">
+			<button id="myBtn" class="search-btn">
+				<span>눌러보세요</span>
+			</button>
+		</div>
+
+		<script>
+			"use strict";
+
+			const btn = document.querySelector("#myBtn");
+			const btnWrap = document.querySelector(".btn-wrap");
+
+			console.log("querySelector:", btn);
+			console.log("querySelectorAll:", document.querySelectorAll("#myBtn"));
+
+			const resultNode = document.createElement("div");
+			resultNode.classList.add("result", "hidden");
+			btnWrap.append(resultNode);
+
+			btn.addEventListener("click", function () {
+				resultNode.classList.toggle("hidden");
+
+				resultNode.innerHTML = `
+                <strong>tagName:</strong> ${btn.tagName}<br>
+                <strong>id:</strong> ${btn.id}<br>
+                <strong>className:</strong> ${btn.className}<br>
+                <strong>parent:</strong> ${btn.parentElement.tagName}<br>
+                <strong>children:</strong> ${btn.children.length}개
+            `;
+			});
+		</script>
+	</body>
+</html>
