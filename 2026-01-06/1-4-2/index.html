@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JS숙제</title>
+	</head>
+	<body>
+		<script>
+			const defaultSettings = {
+				theme: "blue",
+				showSidebar: true,
+			};
+
+			const updateSettings = (userSettings) => {
+				const { theme } = { ...defaultSettings, ...userSettings };
+				console.log(`테마: ${theme}`);
+			};
+
+			updateSettings({ theme: "dark" });
+		</script>
+	</body>
+</html>
