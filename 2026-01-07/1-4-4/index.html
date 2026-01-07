@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JS숙제</title>
+	</head>
+	<body>
+		<script>
+			// stolenCall() 실행 시 undefined가 나오는 이유
+			// 메서드를 분리해서 호출하면 호출 주체가 없어 this가 손실된다.
+
+			const hero = {
+				name: "Batman",
+				call() {
+					console.log(this.name);
+				},
+			};
+
+			// 1. this 손실
+			const stolenCall = hero.call;
+			stolenCall(); // undefined
+
+			// 2. bind로 해결
+			const fixedCall = hero.call.bind(hero);
+			fixedCall(); // Batman
+
+			// 3. setTimeout에서 this 손실 예제 하나 더
+			const hero2 = {
+				name: "Catwoman",
+				delayedCall() {
+					setTimeout(function () {
+						console.log(this.name);
+					}, 1000);
+				},
+			};
+
+			hero2.delayedCall();
+
+			// 3-해결: bind
+			const hero3 = {
+				name: "Catwoman",
+				delayedCall() {
+					setTimeout(
+						function () {
+							console.log(this.name);
+						}.bind(this),
+						1000
+					);
+				},
+			};
+
+			hero3.delayedCall();
+		</script>
+	</body>
+</html>
