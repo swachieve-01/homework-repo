@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JS숙제</title>
+	</head>
+	<body>
+		<script>
+			function createCounter() {
+				let count = 0;
+
+				return {
+					increment() {
+						count++;
+						return count;
+					},
+					decrement() {
+						count--;
+						return count;
+					},
+					getValue() {
+						return count;
+					},
+				};
+			}
+			const counter1 = createCounter();
+			const counter2 = createCounter();
+			const counter3 = createCounter();
+			const counter4 = createCounter();
+			const counter5 = createCounter();
+			const counter6 = createCounter();
+
+			console.log(counter1.increment());
+			console.log(counter2.increment());
+			console.log(counter3.decrement());
+			console.log(counter4.decrement());
+			console.log(counter5.getValue());
+			console.log(counter6.getValue());
+		</script>
+	</body>
+</html>
