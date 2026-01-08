@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JS숙제</title>
+	</head>
+	<body>
+		<h1>요구사항</h1>
+		<p>1. 1-4-3-2</p>
+		<p>
+			2. VIP 손님은 Promise.then(마이크로태스크)이고 일반 손님은 setTimeout(매크로태스크) 마이크로태스크가
+			매크로태스크보다 우선순위가 높기 때문
+		</p>
+		<p>3. setTimeout 시간을 1초로 늘리면 일반 손님 주문이 늦어질 뿐 출력 순서는 그대로</p>
+		<h2>체크포인트</h2>
+		<p>동기 코드(1,4)는 위에서 아래로 즉시 실행</p>
+		<p>VIP는 일반 손님보다 빠름</p>
+		<script>
+			console.log("1. 가게 오픈");
+
+			setTimeout(() => {
+				console.log("2. 일반 손님 주문 완료");
+			}, 0);
+
+			Promise.resolve().then(() => {
+				console.log("3. VIP 손님 입장");
+			});
+
+			console.log("4. 재료 준비");
+		</script>
+	</body>
+</html>
