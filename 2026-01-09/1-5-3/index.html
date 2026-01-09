@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JS숙제</title>
+	</head>
+	<body>
+		<script>
+			const orderPizza = (name) =>
+				new Promise((resolve) => {
+					setTimeout(() => resolve(name), 1000);
+				});
+
+			const makeDough = (orderId) =>
+				new Promise((resolve) => {
+					setTimeout(() => resolve({ dough: true }), 1000);
+				});
+
+			const bakePizza = (dough) =>
+				new Promise((resolve) => {
+					setTimeout(() => resolve({ name: "Pepperoni" }), 1000);
+				});
+
+			async function deliverPizza() {
+				try {
+					const order = await orderPizza("Pepperoni");
+					const dough = await makeDough(order);
+					const pizza = await bakePizza(dough);
+
+					console.log(`${pizza.name} 배달 완료!`);
+				} catch (err) {
+					console.error("배달 실패!", err);
+				}
+			}
+
+			deliverPizza();
+		</script>
+	</body>
+</html>
