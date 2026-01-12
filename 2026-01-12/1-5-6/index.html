@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JS숙제</title>
+	</head>
+	<body>
+		<div class="container">
+			<input id="todo-input" type="text" placeholder="할 일 입력" />
+			<button id="add-btn">추가</button>
+
+			<ul id="todo-list"></ul>
+		</div>
+
+		<script>
+			const input = document.getElementById("todo-input");
+			const btn = document.getElementById("add-btn");
+			const list = document.getElementById("todo-list");
+
+			const saved = localStorage.getItem("todos");
+			let todos = saved ? JSON.parse(saved) : [];
+
+			function save() {
+				localStorage.setItem("todos", JSON.stringify(todos));
+			}
+
+			function render() {
+				list.innerHTML = "";
+
+				todos.forEach((todo) => {
+					const li = document.createElement("li");
+					li.textContent = todo;
+					list.appendChild(li);
+				});
+			}
+
+			btn.addEventListener("click", () => {
+				const text = input.value.trim();
+				if (!text) return;
+
+				todos.push(text);
+				input.value = "";
+
+				save();
+				render();
+			});
+
+			render();
+		</script>
+	</body>
+</html>
