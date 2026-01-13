@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JS숙제</title>
+	</head>
+	<body>
+		<script>
+			function reverse(str) {
+				return str.split("").reverse().join("");
+			}
+			function padThree(num) {
+				return String(num).padStart(3, "0");
+			}
+			function removeAll(str, char) {
+				return str.replaceAll(char, "");
+			}
+
+			console.log(reverse("hello"));
+			console.log(padThree(5));
+			console.log(removeAll("banana", "b"));
+		</script>
+	</body>
+</html>
