@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JS숙제</title>
+	</head>
+	<body>
+		<script>
+			//요구사항 1
+
+			function getDivisors(n) {
+				const divisors = [];
+
+				for (let i = 1; i <= n; i++) {
+					if (n % i === 0) {
+						divisors.push(i);
+					}
+				}
+
+				return divisors;
+			}
+
+			//요구사항 2
+
+			function countDivisors(n) {
+				let count = 0;
+
+				for (let i = 1; i <= n; i++) {
+					if (n % i === 0) {
+						count++;
+					}
+				}
+
+				return count;
+			}
+
+			//요구사항 3
+
+			function sumDivisors(n) {
+				let sum = 0;
+
+				for (let i = 1; i <= n; i++) {
+					if (n % i === 0) {
+						sum += i;
+					}
+				}
+
+				return sum;
+			}
+
+			//요구사항 4
+
+			const n = 12;
+
+			console.log(getDivisors(n));
+			console.log(countDivisors(n));
+			console.log(sumDivisors(n));
+		</script>
+	</body>
+</html>
