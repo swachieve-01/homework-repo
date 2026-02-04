@@ -1,0 +1,29 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: #ffffff;
+	color: #000000;
+}
+
+#root {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.app {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.container {
+	width: 420px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
